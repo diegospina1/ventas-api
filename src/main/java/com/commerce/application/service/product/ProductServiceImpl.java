@@ -3,8 +3,6 @@ package com.commerce.application.service.product;
 import com.commerce.application.dto.product.CreateProductDto;
 import com.commerce.application.dto.product.ProductDto;
 import com.commerce.application.dto.product.UpdateProductDto;
-import static com.commerce.application.mapper.ProductMapper.productMapper;
-
 import com.commerce.application.model.entity.Product;
 import com.commerce.application.repository.ProductRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -12,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.commerce.application.mapper.ProductMapper.productMapper;
 
 @Service
 public class ProductServiceImpl implements ProductService{
