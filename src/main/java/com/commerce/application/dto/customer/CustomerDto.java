@@ -1,12 +1,12 @@
-package com.commerce.application.dto;
+package com.commerce.application.dto.customer;
 
-import org.locationtech.jts.geom.Point;
+import com.commerce.application.dto.Coordinates;
 
 public record CustomerDto(
         Integer id,
         String document,
         String firstname,
         String lastname,
-        Point address
+        Coordinates address
 ) {
 }

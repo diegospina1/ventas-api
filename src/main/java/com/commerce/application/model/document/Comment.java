@@ -1,6 +1,6 @@
 package com.commerce.application.model.document;
 
-import com.commerce.application.dto.CustomerDto;
+import com.commerce.application.dto.customer.CustomerDto;
 import com.commerce.application.dto.ProductDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
