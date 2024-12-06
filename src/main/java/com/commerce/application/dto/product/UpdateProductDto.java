@@ -9,7 +9,7 @@ import jakarta.validation.constraints.Pattern;
 public record UpdateProductDto(
         @NotNull
         Integer id,
-        @Pattern(regexp = "^[a-zA-Z0-9 ]+$\n")
+        @Pattern(regexp = "^[a-zA-Z0-9 ]+$")
         String name,
         CategoryEnum category,
         @Min(value = 0, message = "El stock no puede ser menor que cero (0).")

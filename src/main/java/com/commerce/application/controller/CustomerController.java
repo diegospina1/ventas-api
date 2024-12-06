@@ -26,7 +26,7 @@ public class CustomerController {
     }
 
     @GetMapping("/{document}")
-    public ResponseEntity<CustomerDto> listOneCustomer(@PathVariable("id") String document){
+    public ResponseEntity<CustomerDto> listOneCustomer(@PathVariable("document") String document){
         return ResponseEntity.ok(customerService.listOneCustomer(document));
     }
 

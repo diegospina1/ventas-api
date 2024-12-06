@@ -1,13 +1,10 @@
 package com.commerce.application.dto.product;
 
 import com.commerce.application.model.entity.CategoryEnum;
-import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.*;
 
 public record CreateProductDto(
-        @NotNull
+        @NotBlank
         @Pattern(regexp = "^[a-zA-Z0-9 ]+$")
         String name,
         @NotNull(message = "No es una categoría válida.")
