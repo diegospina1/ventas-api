@@ -55,4 +55,15 @@ public class CustomerServiceImpl implements CustomerService {
     public void deleteCustomer(Integer id) {
 
     }
+
+    @Override
+    public Customer findCustomerById(Integer id) {
+        return repository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
+    }
+
+    @Override
+    public Boolean CustomerExistsById(Integer id) {
+        return repository.existsById(id);
+    }
 }

@@ -6,7 +6,7 @@ import com.commerce.application.dto.customer.UpdateCustomerDto;
 
 import java.util.List;
 
-public interface CustomerService {
+public interface CustomerService extends CustomerSearch{
     List<CustomerDto> listAllCustomers();
 
     CustomerDto listOneCustomer(String document);
