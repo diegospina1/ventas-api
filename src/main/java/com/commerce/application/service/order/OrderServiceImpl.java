@@ -26,12 +26,18 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public List<OrderDto> listAllOrdersByCustomerId(Integer id) {
-        checkCustomerInDb(id);
-        List<Order> order = repository.findAllByCustomerId(id);
-        return order.stream()
+    public List<OrderDto> listAllOrdersByCustomerId(Integer customerId) {
+        checkCustomerInDb(customerId);
+        List<Order> orders = repository.findAllByCustomerId(customerId);
+        return orders.stream()
                 .map(orderMapper::toOrderDto)
                 .collect(Collectors.toList());
+    }
+
+    private void checkCustomerInDb(Integer id){
+        if(!customerSearch.customerExistsById(id)){
+            throw new EntityNotFoundException();
+        }
     }
 
     @Override
@@ -52,6 +58,10 @@ public class OrderServiceImpl implements OrderService{
         return orderMapper.toOrderDto(repository.save(order));
     }
 
+    private Customer findCustomer(Integer id){
+        return customerSearch.findCustomerById(id);
+    }
+
     @Override
     public OrderDto updateOrder(UpdateOrderDto orderDto) {
         Order order = repository.findById(orderDto.id())
@@ -65,13 +75,14 @@ public class OrderServiceImpl implements OrderService{
 
     }
 
-    private Customer findCustomer(Integer id){
-        return customerSearch.findCustomerById(id);
+    @Override
+    public Order findOrderById(Integer id) {
+        return repository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
     }
 
-    private void checkCustomerInDb(Integer id){
-        if(!customerSearch.CustomerExistsById(id)){
-            throw new EntityNotFoundException();
-        }
+    @Override
+    public Boolean orderExistsById(Integer id) {
+        return repository.existsById(id);
     }
 }

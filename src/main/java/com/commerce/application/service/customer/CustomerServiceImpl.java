@@ -63,7 +63,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Boolean CustomerExistsById(Integer id) {
+    public Boolean customerExistsById(Integer id) {
         return repository.existsById(id);
     }
 }

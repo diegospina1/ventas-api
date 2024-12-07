@@ -7,7 +7,7 @@ import jakarta.validation.Valid;
 
 import java.util.List;
 
-public interface OrderService {
+public interface OrderService extends OrderSearch{
     List<OrderDto> listAllOrdersByCustomerId(Integer id);
 
     OrderDto listOneOrder(Integer id);

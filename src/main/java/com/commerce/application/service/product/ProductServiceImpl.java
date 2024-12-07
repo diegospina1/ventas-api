@@ -54,4 +54,15 @@ public class ProductServiceImpl implements ProductService{
     public void deleteProduct(Integer id) {
 
     }
+
+    @Override
+    public Product findProductById(Integer id) {
+        return productRepository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
+    }
+
+    @Override
+    public Boolean productExistsById(Integer id) {
+        return productRepository.existsById(id);
+    }
 }

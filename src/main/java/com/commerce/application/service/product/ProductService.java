@@ -7,7 +7,7 @@ import jakarta.validation.Valid;
 
 import java.util.List;
 
-public interface ProductService {
+public interface ProductService extends ProductSearch{
     List<ProductDto> listAllProducts();
 
     ProductDto listOneProduct(Integer id);
