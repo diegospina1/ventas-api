@@ -1,0 +1,1 @@
+alter table products add name varchar(50) not null;
