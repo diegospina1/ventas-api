@@ -55,4 +55,15 @@ public class CompanyBranchServiceImpl implements CompanyBranchService{
     public void deleteBranch(Integer id) {
 
     }
+
+    @Override
+    public CompanyBranch findById(Integer id) {
+        return repository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
+    }
+
+    @Override
+    public Boolean existsById(Integer id) {
+        return repository.existsById(id);
+    }
 }

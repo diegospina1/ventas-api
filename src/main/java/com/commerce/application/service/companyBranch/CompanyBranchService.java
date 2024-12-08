@@ -7,7 +7,7 @@ import jakarta.validation.Valid;
 
 import java.util.List;
 
-public interface CompanyBranchService {
+public interface CompanyBranchService extends CompanyBranchSearch {
     List<CompanyBranchDto> listAllBranches();
 
     CompanyBranchDto listOneBranch(Integer id);

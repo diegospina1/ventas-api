@@ -95,4 +95,15 @@ public class OrderItemServiceImpl implements OrderItemService {
     public void deleteOrderItem(Integer id) {
         repository.deleteById(id);
     }
+
+    @Override
+    public OrderItem findById(Integer id) {
+        return repository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
+    }
+
+    @Override
+    public Boolean existsById(Integer id) {
+        return repository.existsById(id);
+    }
 }

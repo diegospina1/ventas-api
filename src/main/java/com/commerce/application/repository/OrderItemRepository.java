@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface OrderItemRepository extends JpaRepository<OrderItem, Integer> {
 
-    @Query("select oi from OrderItem oi where oi.order.id = :#{#orderId}")
+    @Query("select oi from OrderItem oi where oi.order.id = :#{#orderId} and oi.quantity > 0")
     List<OrderItem> findAllByOrderId(@Param("orderId") Integer orderId);
 }
