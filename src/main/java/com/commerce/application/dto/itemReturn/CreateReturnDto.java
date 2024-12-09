@@ -13,9 +13,6 @@ public record CreateReturnDto(
         @Min(value = 1, message = "Invalid order item ID")
         Integer order_item_id,
         @NotNull
-        @Min(value = 1, message = "Invalid branch ID")
-        Integer company_branch_id,
-        @NotNull
         @Pattern(regexp = "^[a-zA-Z0-9 ]+$")
         String reason,
         @NotNull
