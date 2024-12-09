@@ -8,9 +8,9 @@ public record UpdateCustomerDto(
         @NotBlank
         @Pattern(regexp = "^\\d{10}$")
         String document,
-        @Pattern(regexp = "^[A-Za-z]+(?:\\s[A-Za-z]+)?$")
+        @Pattern(regexp = "^[A-Za-zñÑ]+(?:\\s[A-Za-zñÑ]+)?$")
         String firstname,
-        @Pattern(regexp = "^[A-Za-z]+(?:\\s[A-Za-z]+)?$")
+        @Pattern(regexp = "^[A-Za-zñÑ]+(?:\\s[A-Za-zñÑ]+)?$")
         String lastname,
         Coordinates address
 ) {

@@ -5,7 +5,7 @@ import jakarta.validation.constraints.*;
 
 public record CreateProductDto(
         @NotBlank
-        @Pattern(regexp = "^[a-zA-Z0-9 ]+$")
+        @Pattern(regexp = "^[a-zA-Z0-9ñÑ ]+$")
         String name,
         @NotNull(message = "No es una categoría válida.")
         CategoryEnum category,
