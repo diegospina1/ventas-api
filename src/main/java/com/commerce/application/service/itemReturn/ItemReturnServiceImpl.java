@@ -12,6 +12,7 @@ import com.commerce.application.service.customer.CustomerSearch;
 import com.commerce.application.service.orderItem.OrderItemSearch;
 import com.commerce.application.service.product.ProductSearch;
 import jakarta.persistence.EntityNotFoundException;
+import org.locationtech.jts.geom.Point;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -76,7 +77,7 @@ public class ItemReturnServiceImpl implements ItemReturnService {
         itemReturn.setQuantity(returnDto.quantity());
         itemReturn.setStatus(returnDto.status());
         itemReturn.setOrderItem(findOrderItem(returnDto.order_item_id()));
-        itemReturn.setCompanyBranch(findCompanyBranch(returnDto.company_branch_id()));
+        itemReturn.setCompanyBranch(findCompanyBranch(returnDto.order_item_id()));
 
         return returnMapper.toReturnDto(repository.save(itemReturn));
     }
@@ -86,7 +87,10 @@ public class ItemReturnServiceImpl implements ItemReturnService {
     }
 
     private CompanyBranch findCompanyBranch(Integer id){
-        return branchSearch.findById(id);
+        OrderItem orderItem = findOrderItem(id);
+        Point customerAddress = orderItem.getOrder().getCustomer().getAddress();
+        Integer branchId = repository.findNearestBranch(customerAddress);
+        return branchSearch.findById(branchId);
     }
 
     @Override
