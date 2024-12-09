@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Pattern;
 public record UpdateCompanyBranchDto(
         @NotNull
         Integer id,
-        @Pattern(regexp = "^[a-zA-Z0-9 ]+$")
+        @Pattern(regexp = "^[a-zA-Z0-9ñÑ ]+$")
         String name,
         Coordinates location
 ) {

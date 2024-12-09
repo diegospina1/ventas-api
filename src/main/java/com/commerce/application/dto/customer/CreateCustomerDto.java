@@ -10,10 +10,10 @@ public record CreateCustomerDto(
         @Pattern(regexp = "^\\d{10}$")
         String document,
         @NotBlank
-        @Pattern(regexp = "^[A-Za-z]+(?:\\s[A-Za-z]+)?$")
+        @Pattern(regexp = "^[A-Za-zñÑ]+(?:\\s[A-Za-zñÑ]+)?$")
         String firstname,
         @NotBlank
-        @Pattern(regexp = "^[A-Za-z]+(?:\\s[A-Za-z]+)?$")
+        @Pattern(regexp = "^[A-Za-zñÑ]+(?:\\s[A-Za-zñÑ]+)?$")
         String lastname,
         @Valid
         Coordinates address

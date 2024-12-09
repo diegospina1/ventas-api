@@ -9,7 +9,7 @@ public record UpdateCommentDto(
         @NotNull
         @Min(value = 1, message = "Invalid ID.")
         Integer id,
-        @Pattern(regexp = "[a-zA-Z0-9 ]+$")
+        @Pattern(regexp = "[a-zA-Z0-9ñÑ ]+$")
         String message,
         @Min(value = 1, message = "Invalid Score: min 1, max 5.")
         @Max(value = 5, message = "Invalid Score: min 1, max 5.")

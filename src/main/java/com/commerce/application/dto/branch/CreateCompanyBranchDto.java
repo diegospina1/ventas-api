@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Pattern;
 
 public record CreateCompanyBranchDto(
         @NotBlank
-        @Pattern(regexp = "^[a-zA-Z0-9 ]+$")
+        @Pattern(regexp = "^[a-zA-Z0-9ñÑ ]+$")
         String name,
         @Valid
         Coordinates location

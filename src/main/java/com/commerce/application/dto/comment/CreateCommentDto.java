@@ -12,7 +12,7 @@ public record CreateCommentDto(
         @Min(value = 1, message = "Invalid customer ID.")
         Integer product_id,
         @NotBlank
-        @Pattern(regexp = "[a-zA-Z0-9 ]+$")
+        @Pattern(regexp = "[a-zA-Z0-9ñÑ ]+$")
         String message,
         @NotNull
         @Min(value = 1, message = "Invalid Score: min 1, max 5.")
