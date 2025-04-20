@@ -1,11 +1,9 @@
 package com.commerce.application.repository;
 
-import com.commerce.application.model.entity.CompanyBranch;
 import com.commerce.application.model.entity.ItemReturn;
 import org.locationtech.jts.geom.Point;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
